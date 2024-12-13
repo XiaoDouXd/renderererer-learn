@@ -1,0 +1,38 @@
+{
+    "folders": [{"path": "."}],
+    "settings": {
+        "cmake.generator": "Ninja",
+        "clangd.fallbackFlags": [
+            "-I${workspaceFolder}/include"
+        ],
+        // "clangd.path": "the/path/to/clangd/executable/on/windows",
+        "clangd.detectExtensionConflicts": true,
+        "clangd.arguments": [
+            // 在后台自动分析文件（基于complie_commands)
+            "--background-index",
+            // 标记compelie_commands.json文件的目录位置
+            "--compile-commands-dir=build",
+            // 同时开启的任务数量
+            "-j=12",
+            // 告诉clangd用那个clang进行编译，路径参考which clang++的路径
+            // "--query-driver=/usr/bin/clang++",
+            // clang-tidy功能
+            "--clang-tidy",
+            "--clang-tidy-checks=performance-*,bugprone-*",
+            // 全局补全（会自动补充头文件）
+            "--all-scopes-completion",
+            // 更详细的补全内容
+            "--completion-style=detailed",
+            // 补充头文件的形式
+            "--header-insertion=iwyu",
+            // pch优化的位置
+            "--pch-storage=disk"
+        ],
+        "clangd.serverCompletionRanking": true,
+        "cmake.buildEnvironment": {
+            "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+        },
+        "C_Cpp.default.cppStandard": "c++23",
+        "C_Cpp.default.cStandard": "c23"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "name": "${XD_PROJECT_NAME}",
+    "version-string": "0.1.0",
+    "dependencies": [
+        "assimp",
+        "lz4",
+        "physx",
+        "rapidjson"
+    ]
+}
